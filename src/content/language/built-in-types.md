@@ -18,27 +18,49 @@ The Dart language has special support for the following:
 Dart 语言对下列类型提供了专门支持：
 
 - [Numbers](#numbers) (`int`, `double`)
-- [数字](#numbers) (`int`, `double`)
+
+  [数字](#numbers) (`int`, `double`)
+  
 - [Strings](#strings) (`String`)
-- [字符串](#strings) (`String`)
+
+  [字符串](#strings) (`String`)
+  
 - [Booleans](#booleans) (`bool`)
-- [布尔值](#booleans) (`bool`)
+
+  [布尔值](#booleans) (`bool`)
+  
 - [Records][] (`(value1, value2)`)
-- [记录][Records] (`(value1, value2)`)
+
+  [记录][Records] (`(value1, value2)`)
+  
 - [Functions][] (`Function`)
-- [函数][Functions] (`Function`)
+
+  [函数][Functions] (`Function`)
+  
 - [Lists][] (`List`, also known as *arrays*)
-- [列表][Lists] (`List`，也叫 *数组*)
+
+  [列表][Lists] (`List`，也叫 *数组*)
+  
 - [Sets][] (`Set`)
-- [集合][Sets] (`Set`)
+
+  [集合][Sets] (`Set`)
+  
 - [Maps][] (`Map`)
-- [映射][Maps] (`Map`)
+
+  [映射][Maps] (`Map`)
+  
 - [Runes](#runes-and-grapheme-clusters) (`Runes`; often replaced by the `characters` API)
-- [符文](#runes-and-grapheme-clusters) (`Runes`；通常改用 `characters` API)
+
+  [符文](#runes-and-grapheme-clusters) (`Runes`；通常改用 `characters` API)
+  
 - [Symbols](#symbols) (`Symbol`)
-- [符号](#symbols) (`Symbol`)
+
+  [符号](#symbols) (`Symbol`)
+  
 - The value `null` (`Null`)
-- 值 `null`（`Null`）
+
+  值 `null`（`Null`）
+  
 
 This support includes the ability to create objects using literals.
 For example, `'this is a string'` is a string literal,
@@ -62,27 +84,41 @@ Some other types also have special roles in the Dart language:
 还有一些类型在 Dart 语言里有特殊角色：
 
 * `Object`: The superclass of all Dart classes except `Null`.
-* `Object`：除 `Null` 以外所有 Dart 类的超类。
+
+  `Object`：除 `Null` 以外所有 Dart 类的超类。
+  
 * `Enum`: The superclass of all enums.
-* `Enum`：所有枚举的超类。
+
+  `Enum`：所有枚举的超类。
+  
 * `Future` and `Stream`: Used in [asynchronous programming][].
-* `Future` 和 `Stream`：用于[异步编程][asynchronous programming]。
+
+  `Future` 和 `Stream`：用于[异步编程][asynchronous programming]。
+  
 * `Iterable`: Used in [for-in loops][iteration] and
   in synchronous [generator functions][].
-* `Iterable`：用于 [for-in 循环][iteration] 和同步[生成器函数][generator functions]。
+
+  `Iterable`：用于 [for-in 循环][iteration] 和同步[生成器函数][generator functions]。
+  
 * `Never`: Indicates that an expression can never
   successfully finish evaluating.
   Most often used for functions that always throw an exception.
-* `Never`：表示表达式永远不会成功求值完成。
+
+  `Never`：表示表达式永远不会成功求值完成。
   最常见于总会抛出异常的函数。
+  
 * `dynamic`: Indicates that you want to disable static checking.
   Usually you should use `Object` or `Object?` instead.
-* `dynamic`：表示关闭静态检查。
+
+  `dynamic`：表示关闭静态检查。
   通常应改用 `Object` 或 `Object?`。
+  
 * `void`: Indicates that a value is never used.
   Often used as a return type.
-* `void`：表示这个值不会被使用。
+
+  `void`：表示这个值不会被使用。
   常作为返回类型。
+  
 
 The `Object`, `Object?`, `Null`, and `Never` classes
 have special roles in the class hierarchy.
@@ -104,7 +140,7 @@ here's a nice example that illustrates what dynamic does:
 
 ## Numbers
 
-## 数字
+## 数字 {:#1}
 
 Dart numbers come in two flavors:
 
@@ -112,7 +148,7 @@ Dart 的数字有两种：
 
 [`int`][]
 
-:   Integer values no larger than 64 bits,
+<br>   Integer values no larger than 64 bits,
     [depending on the platform][dart-numbers].
     On native platforms, values can be from
     -2<sup>63</sup> to 2<sup>63</sup> - 1.
@@ -120,7 +156,7 @@ Dart 的数字有两种：
     (64-bit floating-point values with no fractional part)
     and can be from -2<sup>53</sup> to 2<sup>53</sup> - 1.
 
-:   不超过 64 位的整数值，[取决于平台][dart-numbers]。
+<br>   不超过 64 位的整数值，[取决于平台][dart-numbers]。
     在原生平台上，取值范围是
     -2<sup>63</sup> 到 2<sup>63</sup> - 1。
     在 Web 上，整数表示为 JavaScript 数字
@@ -129,10 +165,10 @@ Dart 的数字有两种：
 
 [`double`][]
 
-:   64-bit (double-precision) floating-point numbers, as specified by
+<br>   64-bit (double-precision) floating-point numbers, as specified by
     the IEEE 754 standard.
 
-:   IEEE 754 标准规定的 64 位（双精度）浮点数。
+<br>   IEEE 754 标准规定的 64 位（双精度）浮点数。
 
 Both `int` and `double` are subtypes of [`num`][].
 The num type includes basic operators such as +, -, /, and \*,
@@ -281,7 +317,7 @@ Using digit separators requires a [language version][] of at least 3.6.
 
 ## Strings
 
-## 字符串
+## 字符串 {:#2}
 
 A Dart string (`String` object) holds a sequence of UTF-16 code units.
 You can use either
@@ -419,7 +455,7 @@ For more information on using strings, check out
 
 ## Booleans
 
-## 布尔值
+## 布尔值 {:#3}
 
 To represent boolean values, Dart has a type named `bool`. Only two
 objects have type bool: the boolean literals `true` and `false`,
@@ -459,7 +495,7 @@ assert(iMeantToDoThis.isNaN);
 
 ## Runes and grapheme clusters
 
-## 符文和字形簇
+## 符文和字形簇 {:#4}
 
 In Dart, [runes][] expose the Unicode code points of a string.
 You can use the [characters package][]
@@ -537,7 +573,7 @@ for the characters package.
 
 ## Symbols
 
-## 符号
+## 符号 {:#5}
 
 A [`Symbol`][] object
 represents an operator or identifier declared in a Dart program. You
